@@ -1,0 +1,161 @@
+[[?xx2xx::xx[[S4]]xx::
+
+<style>
+div.consRegFieldContainer .fieldContainer .field-row .label{color:#000;font-size:14pt;text-align:left;}
+
+body,p, span, a, label{font-size:11pt;}
+div.lo-CalendarDateInfoContainer{font-size:11pt;}
+h1,h2,h3,h4 {font-size:16pt;}
+h2.lo-titlebar {font-size:16pt;}
+div.lo-EventSubHeaderBar{font-size:16pt;}
+#RSVPGuestNumberContainer{display:none;}
+input[type="text"]{width:170px;padding:7px 10px;margin-left:5px;margin-top:3px;margin-bottom:3px;}
+
+div.lo-EventBorderContainer, div.lo-BorderContainer, #LO-TitleContainer, #lo-CalendarDateInfoContainer, #requiredContainer, #lo-CalUserDetailTitleContainer, #lo-UserDetail, #EventButtonContainerDiv, #lo-GeneralRSVPErrorContainer, #lo-UserDetailEventDescription{max-width:896px;min-width:280px;width:100%;margin:10px 0;padding:12px;}
+
+div.field-container div.field-row.error, div.responsive div.form-error{padding:10px;}
+
+#LO-TitleContainer, #lo-CalendarDateInfoContainer, #requiredContainer, #lo-CalUserDetailTitleContainer{width:auto;}
+
+#EventButtonContainerDiv{padding:10px; margin-bottom:20px;}
+input[type="submit"]{background-color:#078; color:#FFF;padding:7px 15px;border:none;font-size:12pt;margin-right:20px;}
+input[type="reset"]{background-color:#F90; color:#000;padding:7px 15px;border:none;font-size:12pt;display:none;}
+.field-row-accepts_email-default_checked{display:none;}
+
+
+.mobile div.responsive {
+    width: 100%; 
+}
+#EventLinkContainer{display:none;}
+.lo-EventReminderContainer2{display:none;}
+div.consRegFieldContainer .fieldContainer .field-row .label{width:125px;text-align:left}
+select{width:200px;padding:10px;white-space:normal;}
+
+span.input-container {
+    display: inline-block;
+    max-width: 250px;
+    vertical-align:top;
+}
+span.survey-question-number-container {
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+}
+
+#site-header > .wrapper, #nav-primary > ul, #herospace > .wrapper, #layout > .wrapper, #site-footer > .wrapper, #banner-bar > .wrapper, #homepage-content > .wrapper, #sticky-widget > .wrapper{padding:0;}
+
+#lo-CalUserDetailTitleContainer,#lo-UserDetailInfoContainer {
+    width: 90%;padding:0;
+margin:0;
+}
+
+#lo-CalUserDetailTitleContainer h2, h2.lo-titlebar{
+font-size:14pt;
+}
+div.lo-CalendarDateInfoContainer div.lo-CalendarDateLabel{width:50px}
+
+#lo-CalUserDetailTitleContainer h2, h2.lo-titlebar{width:70%;white-space:normal;}
+
+.row{width:90% !important;}
+
+div.consRegFieldContainer .fieldContainer {
+    min-width: 250px;
+}
+
+#div.luminate-eventAppArea, div.consRegFieldContainer .fieldContainer .field-row{
+width: 90%;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+#contact_info-cons_reg_field_container .fieldContainer{width:100%;}
+
+/*#lo-UserDetailEventDescription{width:100%;}*/
+
+div.lo-requiredLegend{margin-right:20px;}
+</style>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script> 
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+<script type="text/javascript">
+var jQADA = jQuery.noConflict(true);
+jQADA(document).ready(function(){
+jQADA('#EventPreferenceTitle').text('Additional Questions');
+jQADA('#lo-EventPreference').text('Waiver');
+jQADA('#event_preference_information p:eq(0)').hide();
+});
+</script>
+
+<script src="../ws/js/iframeresizer/iframeResizer355.contentWindow.min.js" type="text/javascript"></script>
+
+
+::]]
+
+
+[[?[[S8]]::JanrainLogin::
+<!--<div id="adaActualContent"></div>-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<script type="text/javascript">
+		jQADA(document).ready(function(){
+			if(window.self !== window.top){
+				//insideframe	
+			} else {
+				//jQADA('#adaActualContent').prepend('<div class="text-right" style="max-width:800px;"><img src="https://donations.diabetes.org/dorg/images/2013-template/ada-logo.png" style="max-width:225px;width:100%;height:auto;" alt="American Diabetes Association"></div>');
+			}
+			jQADA('<div class="alert-info" style="padding:7px;"><p><strong><u>IMPORTANT NOTIFICATION:</u></strong><p><ul style="list-style-type: disc;list-style-position: inside;"><li style="margin-bottom:5px;">If you <u>already have an existing account</u> with American Diabetes Association, please <a href="javascript:showLogin();" style="color:#C41230;">Log in here</a>.</li><li style="margin-bottom:5px;">Otherwise, if this is a new account creation follow the instruction below.</li></ul></div>').insertBefore(jQADA('#registerText'));
+			jQADA('<hr />').insertAfter(jQADA('#registerSubmit'));
+			jQADA('label[for=s_rememberMe]').hide();
+			jQADA('#janrainLoginForm > p:last').hide();
+			jQADA('#janrainLoginForm').append('<p>Forgot your username and password? <a href="https://donations.diabetes.org/site/PageServer?pagename=CC_PasswordRecovery" target="_blank">Click here</a><p><p>Do not currently have an existing account?<a href="javascript:showRegister();">Click here</a></p>');
+		});
+		
+	</script>
+	<style>
+#reusDORGHMainNavCOM, #reusDORGBrandbarCOM, #site-header, #site-footer, #CTALogin, #reusDORGHSearch, #btn-donate-2014, #btn-member-2014, #whats_this_link, #s_rememberMe {display:none !important;}
+
+		#adaActualContent {
+			overflow: hidden;
+		}
+		.appArea{min-width:280px;}
+	
+	    .Explicit, #whats_this_link {
+			font-size: 11px;
+			font-weight: normal;
+		}
+	    
+		td{padding:2px 0;}
+	
+	   	#loginForm p, #registerForm p {
+			margin: 15px 0;
+			line-height: 1.3em;
+		}
+		
+	    #registerForm table p {
+			margin: 0;
+		}
+
+		@media only screen and (max-width:450px){
+			input[type="text"] {
+				 width: 100px;
+			}
+			#cons_email {
+    			width: 280px;
+			}
+
+		}
+	
+		@media only screen and (max-width:370px){
+				LABEL.wrapable {
+					white-space: normal;
+					max-width: 220px;
+					vertical-align: middle;
+				}
+		}
+
+</style>
+	::]]
