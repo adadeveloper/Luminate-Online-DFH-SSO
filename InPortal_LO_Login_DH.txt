@@ -1,0 +1,517 @@
+<div id="loginBox" class="container-fluid">
+	<div id="orphanMsgBox"></div>
+
+[[?xxxxx::xx[[S1:user_name]]xx::
+
+<div style="display:none;">[[S202]]</div>
+
+<div id="errorloginmsg" class="alert-danger" style="padding:15px;"><strong>Error:</strong> Invalid Login. Please try again.</div>
+
+<!--
+<center>
+	<h1><strong>Login</strong></h1>
+</center>
+-->
+<!--
+
+<p>Log In with</p>
+<div class="loginSSObox col-xs-6">
+<center>
+<a id="jfb" class="btn btn-block btn-lg btn-social btn-facebook" onclick="fbLogin();">
+    <span class="fa fa-facebook"></span> <span class="hidden-xs">Sign in with</span> <span>Facebook</span>
+  </a>
+<a id="jtwitter" class="btn btn-block btn-lg btn-social btn-twitter" onclick="twitterLogin();">
+    <span class="fa fa-twitter"></span> <span class="hidden-xs">Sign in with</span> <span>Twitter</span>
+  </a>
+</center>
+</div>
+
+<div class="loginSSObox col-xs-6" >
+<center>
+<a id="jGoogle" class="btn btn-block btn-lg btn-social btn-google" onclick="googleLogin();">
+    <span class="fa fa-google"></span> <span class="hidden-xs">Sign in with</span> <span>Google+</span>
+  </a>
+<a id="jYahoo" class="btn btn-block btn-lg btn-social btn-yahoo" onclick="yahooLogin();">
+    <span class="fa fa-yahoo"></span> <span class="hidden-xs">Sign in with</span> <span>Yahoo</span>
+  </a>
+</center>
+</div>
+
+<div style="clear:both;height:10px;">&nbsp;</div>
+
+<div class="text-divider">
+      <span style="background-color: #FFF; padding: 0 10px;line-height:0%;color:#000;float:none !important;margin:0 !important;">
+        OR with your username and password 
+      </span>
+    </div>
+
+<style>
+.text-divider{margin: 2em 0; line-height: 0; text-align: center;}
+.text-divider:before{ content: " "; display: block; border-top: 1px solid #000; border-bottom: 1px solid #000;}
+</style>
+-->
+
+<form id="login-form">
+<input type="hidden" name="method" value="login">
+
+<div class="row">
+
+<div class="col-sm-12">
+<label for="username" class="sr-only radio-inline">Username*</label>
+<input type="text" id="username" name="user_name" placeholder="username" />
+<br /><br />
+</div>
+
+<div class="col-sm-12"> 
+<label for="password" class="sr-only radio-inline">Password*</label>
+<input type="password" id="password" name="password" placeholder="password" />
+<br /><br />
+</div>
+
+<div class="col-sm-12"> 
+<input type="checkbox" name="showPwdCB" id="showPwdCB"> Show Password
+	<div id="showPwdTxt"></div>
+</div>
+
+<div class="col-sm-12">
+<input id="login-button" class="form-control btn btn-primary" type="submit" name="submit" value="Log In"  />
+</div>
+</div>
+<div class="clearfix">&nbsp;</div>
+</form>
+
+<div class="row">
+<div class="col-xs-6 text-left">
+<p style="margin-left:10px;font-size:10pt;"><a href="SPageServer?pagename=CC_PasswordRecovery" target="_blank" style="font-size:10pt;">forgot password?</a></p>
+</div>
+<div class="col-xs-6 text-right">
+<p style="margin-right:10px;font-size:10pt;">New? <a id="registerLink" href="#" target="_parent" style="font-size:10pt;">register here</a> </p>
+</div>
+</div>
+<div class="clearfix">&nbsp;</div>
+
+::
+<div id="loggedinMsg">
+<h3><strong>Welcome, <span id="activeUserFname">[[S1:first_name]]!</span></strong></h3>
+<p>You have successfully logged in, <a id="homepageLink" href="#" target="_parent">go to DiabetesFoodHub homepage</a>.</p>
+</div>
+]]
+</div>
+
+<style>
+body,p,span,div,a,li{font-size:12pt;}
+body{background:transparent;}
+a, a:hover, a:visited, a:link {color:#007788;}
+#errorloginmsg{display:none;}
+#loggedinMsg{display:none;}
+#loginBox{margin-top:10px;margin-bottom:10px;max-width:800px;min-width:300px;}
+#loginBox .clearfix{height:1px;}
+#loginBox .form-control{height:45px;}
+#loginBox form{/*border:#C0BBBB solid 1px;border-radius:10px;*/padding:10px;}
+input,select{margin:10px 5px;padding:5px;height:50px;}
+#login-button {
+    background-image: none;
+    background-color: #007788;
+    border: none;
+    padding: 5px;
+	margin-top:20px;
+    height: 40px;   
+    font-weight: bold;
+	font-size:16pt;
+	border-radius:20px;
+}
+	.sr-only{
+		display:block;
+		font-size: 16pt;
+    	height: auto;
+    	width: auto;
+    	padding: 0;
+		font-weight:bold;
+	}
+	
+input[type='text'],input[type='password']{border:1px solid #CCC;width:98%;margin:0;padding:15px;border-radius:20px;}
+input[type='radio'], input[type='checkbox'] {height:auto;}
+label{white-space:normal;}
+	
+	
+#user_type_oauth_login_container{display:none;}
+
+	.loginSSObox{margin-bottom:20px;}
+	a.btn-social{background-image:none;filter:none;padding:15px !important;border-color: rgba(0,0,0,.2);text-decoration:none !important;}
+	.loginSSObox{max-width:280px;}
+	a.btn-twitter{background-color:#55acee;color:#FFF !important;padding-left:61px !important;}
+	a.btn-facebook{background-color:#3b5998;color:#FFF !important;padding-left:61px !important;}
+	a.btn-google{background-color:#c23321;color:#FFF !important;padding-left:61px !important;}
+	a.btn-yahoo{background-color:#500a6f;color:#FFF !important;padding-left:61px !important;}
+
+@media only screen and (max-width: 767px){
+         #user_type_login_container, #user_type_new_participant_registration_container {width:100% !important;max-width:280px;}
+        }
+</style>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/luminateExtend/1.7.0/luminateExtend.min.js"></script> 
+
+<script type="text/javascript">
+var jQADA = jQuery.noConflict(true);
+var loginStatus;
+
+	[[?xxxx::xx[[S1:user_name]]xx::
+		var currLS = 0;
+	::
+		var currLS = 1;
+	]]
+
+
+var checkCounter=0;
+var baseURL;
+var urlRef;
+var allowedBase = ['diabetesfoodhub.org','sandbox.php54.intechnic.com','vm.aik.ninja','office.intechnic.com'];
+var matchBaseLoc=-1;
+var rootURL;
+var parentFrom;
+var reloadTarget;
+
+
+jQADA(document).ready(function(){
+	//initiate Luminate Extend		
+    luminateExtend({
+            apiKey: 'adap1234',
+            path: {
+                nonsecure: 'http://main.diabetes.org/site/',
+                secure: 'https://donations.diabetes.org/site/'
+            }
+     });
+
+	//compete URL Referrer Address
+	urlRef = document.referrer;
+	
+	if(urlRef != ''){
+		//get the domain base of the referrer
+		baseURL =  urlRef.match(/:\/\/(.[^/]+)/)[1];
+	
+		for(var i=0;i<allowedBase.length;i++){
+			if(baseURL.indexOf(allowedBase[i])!=-1){
+				matchBaseLoc = i;
+			}
+		}
+		//allowed domain
+		if(matchBaseLoc != -1){
+			//store initial allowed base domain in cookie
+			jQADA.cookie('parentfrm',baseURL);
+			rebuiltMainURL(baseURL);
+		} else {
+			//coming from referrer that is not allowed
+			//check if cookie storing original allowed referrer exist
+			if(typeof jQADA.cookie('parentfrm')!= 'undefined'){
+				parentFrom = jQADA.cookie('parentfrm');
+				jQADA.cookie('parentfrm',null); //destroy the cookie post passing to local var
+				
+				for(var i=0;i<allowedBase.length;i++){
+					if(parentFrom.indexOf(allowedBase[i])!=-1){
+						matchBaseLoc = i;
+					}
+				}
+				rebuiltMainURL(parentFrom);				
+				
+			} else {
+				//unknown origin redirect to production
+				//console.log('debug message: URLRef not blank');
+			}
+		}
+	} else {
+		//LO login page is likely accessed directly - redirect to production
+		//console.log('debug message: URLRef blank');
+	}
+	
+	
+
+	
+	[[?xxxx::xx[[S1:user_name]]xx::
+		//password field listener
+		var pwinput = document.getElementById('password');
+		pwinput.addEventListener('keyup',function(){showPwdHandler();});
+
+		jQADA('#showPwdCB').on('click', function(){
+			showPwdHandler();
+		});
+
+	    //login form event listener
+		jQADA('#login-form').submit(function() {
+					login('#login-form');
+					return false;
+		});	
+	
+	::
+	
+			[[?xxTRUExx::xx[[S45:302416]]xx::::				
+					luminateExtend.api.request({
+								api: 'survey',
+								callback: VMSSurveyCallback,
+								data: 'method=submitSurvey&survey_id=63221',
+								requestType: 'POST',
+								requiresAuth:true
+					});
+		    ]]
+			
+			[[?xxTRUExx::xx[[S45:155725]]xx::::
+
+[[?xxxx::xx[[S1:custom_boolean27]]xx::
+	[[?xxTRUExx::xx[[S45:305244]]xx::::
+				[[?xxTRUExx::xx[[S45:155726]]xx::::					
+					luminateExtend.api.request({
+								api: 'survey',
+								callback: VMSSurveyCallback2,
+								data: 'method=submitSurvey&survey_id=63222&question_105280=11161&question_105281=True',
+								requestType: 'POST',
+								requiresAuth:true
+					});
+				]]
+		]]
+::]]
+			]]
+	
+	]]
+			
+	
+	//first check 
+	loginCheck();
+	//20 minute check for logged in session
+	loginStatus = setInterval(function(){ loginCheck(); },1200000);
+	//loginStatus = setInterval(function(){ loginCheck(); },3000);
+	
+	
+});
+	
+
+window.VMSSurveyCallback = {
+      error: function(data) {}, 
+      success: function(data) {}
+};
+
+window.VMSSurveyCallback2 = {
+      error: function(data) {}, 
+      success: function(data) {}
+};
+	
+function rebuiltMainURL(whatBase){
+	switch(matchBaseLoc){
+					case 0:
+						rootURL = 'https://'+whatBase+'/';
+					break;
+					case 1:
+						rootURL = 'https://'+whatBase+'/foodhub/';
+					break;
+					case 2:
+						rootURL = 'https://'+whatBase+'/p/foodhub/';
+					break;
+					case 3:
+						rootURL = 'https://'+whatBase+'/SVN/foodhub/';
+					break;
+	}
+	jQADA('#registerLink').prop('href',rootURL+'register.html');
+	jQADA('#homepageLink').prop('href',rootURL);	
+	reloadTarget = rootURL;
+	
+	[[?xxxx::xx[[S1:user_name]]xx::::
+		if(window.self === window.top){
+			//iframed  net						
+			jQADA('#loggedinMsg').show();
+		} else{
+			jQADA('#loggedinMsg').hide();
+		}
+	]]	
+	
+}
+
+//showPwd 
+function showPwdHandler(){
+	if(jQADA('#showPwdCB').is(':checked')){
+		var typedpwd = jQADA('#password').val();
+		//typedpwd = typedpwd.replace(/./g,'*');
+		jQADA('#showPwdTxt').html(typedpwd);
+	} else {
+		jQADA('#showPwdTxt').html('');
+	}
+}
+	
+//perform login via AJAX request
+function login(whatForm) {
+            luminateExtend.api.request({
+                api: 'CRConsAPI',
+                callback: loginCallback,
+                data: 'method=login',
+                form: whatForm,
+                requestType: 'POST',
+                useHTTPS: true
+            });
+}
+//callback function after login
+function loginCallback(data) {
+            if (data.errorResponse) {
+                //alert("Invalid login");
+				jQADA('#errorloginmsg').show();
+setTimeout(function(){ jQADA('#errorloginmsg').hide(); }, 3000);
+            } else if (data.loginResponse) {
+				jQADA('#errorloginmsg').hide();
+console.log('CONSID is: '+data.loginResponse.cons_id);
+            	getUser(data.loginResponse.cons_id);				
+            }
+}
+
+
+function loginCheck(){
+	if(typeof reloadTarget != 'undefined'){
+		luminateExtend.api.request({
+	                api: 'CRConsAPI',
+	                callback: loginCheckCallback,
+	                data: 'method=loginTest',                
+	                requestType: 'POST',
+	                useHTTPS: true
+	    });
+	} else {
+            		//console.log('debug message: reloadTarget undefined from loginCheck()');           		
+    }
+}
+
+function loginCheckCallback(data){
+	if(data.errorResponse){
+		//console.log('no logged-in user');	
+		if(window.addEventListener){			
+							//Intechnic CMS URL for target_origin	
+							var target_origin = reloadTarget;	
+							parent.postMessage('timeout', target_origin );	
+
+		}
+		
+	} else {
+		//console.log(data.loginResponse.cons_id);	
+		if(currLS===1){
+console.log('CONSID is: '+data.loginResponse.cons_id);
+			getUser(data.loginResponse.cons_id);
+		} 
+				
+	}
+	
+	checkCounter++;
+	
+}
+
+function parentReload(whichParent){
+	if(window.addEventListener){			     
+			    	//Intechnic CMS URL for target_origin					
+			  		var target_origin = whichParent;					
+					parent.postMessage('parentReload', target_origin );	
+				}
+}
+
+function getUser(whichCID){
+	luminateExtend.api.request({
+                api: 'CRConsAPI',
+                callback: getUserCallback,
+                data: 'method=getUser&cons_id'+whichCID,                
+                requestType: 'POST',
+                requiresAuth: true,
+                useHTTPS: true
+    });
+}
+
+function getUserCallback(data){
+	if(data.errorResponse){
+		//console.log('error performing Luminate Online getUser API. Contact ADA POC');
+	} else {
+		
+		if(checkNested(data,'getConsResponse','name','first')) {
+			var activefname = data.getConsResponse.name.first;
+		} else {
+			var activefname = "";
+		}
+		
+		if(checkNested(data,'getConsResponse','name','last')) { 
+			var activelname = data.getConsResponse.name.last;
+		} else {
+			var activelname = "";
+		}
+		
+		if(checkNested(data,'getConsResponse','primary_address','zip')) {
+			var activezip = data.getConsResponse.primary_address.zip;
+		} else {
+			var activezip = "";
+		}
+		
+				
+		
+		/*	var activeUserJSON = {
+				"consid":data.getConsResponse.cons_id,
+				"fname":data.getConsResponse.name.first,
+				"lname":data.getConsResponse.name.last,
+				"email":data.getConsResponse.email.primary_address,
+				"username":data.getConsResponse.user_name,
+				"zipcode":data.getConsResponse.primary_address.zip,
+				"haveDiabetes":"NA",
+				"gender":"NA",
+				"dob":"NA"
+			}
+		*/
+			var activeUserJSON = {
+				"consid":data.getConsResponse.cons_id,
+				"fname":activefname,
+				"lname":activelname,
+				"email":data.getConsResponse.email.primary_address,
+				"username":data.getConsResponse.user_name,
+				"zipcode":activezip,
+				"haveDiabetes":"NA",
+				"gender":"NA",
+				"dob":"NA"
+			}
+		
+		
+		var activeUserStr = JSON.stringify(activeUserJSON);
+		console.log(activeUserStr);
+		
+		if(window.addEventListener){	
+			    //Intechnic CMS URL for target_origin
+			  	var target_origin = reloadTarget;					
+				//parent.postMessage(activeUser, target_origin );			    
+				parent.postMessage(activeUserStr, target_origin );						
+		}
+	}
+	
+}
+	
+function checkNested(obj) {
+  var args = Array.prototype.slice.call(arguments, 1);
+
+  for (var i = 0; i < args.length; i++) {
+    if (!obj || !obj.hasOwnProperty(args[i])) {
+      return false;
+    }
+    obj = obj[args[i]];
+  }
+  return true;
+}
+
+function fbLogin(){
+jQADA('#janrain-facebook').click();
+}
+function twitterLogin(){
+jQADA('#janrain-twitter').click();
+}
+function googleLogin(){
+jQADA('#janrain-googleplus').click();
+}
+function yahooLogin(){
+jQADA('#janrain-yahoo').click();
+}	
+
+</script>
+<script src="../ws/js/iframeresizer/iframeResizer355.contentWindow.min.js" type="text/javascript"></script>
+
+
+
+
+
+

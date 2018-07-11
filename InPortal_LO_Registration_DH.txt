@@ -1,0 +1,702 @@
+<div id="surveyBox" class="container-fluid">
+  <div class="clearfix">&nbsp;</div>
+  <div id="orphanMsgBox"></div>
+  <div id="formLanding">
+   
+[[?xxxx::xx[[S1:user_name]]xx::
+   
+   <div style="display:none;">[[S202]]</div>
+
+<!--   
+   <p>Log In with</p>
+<div class="loginSSObox col-xs-6">
+<center>
+<a id="jfb" class="btn btn-block btn-lg btn-social btn-facebook" onclick="fbLogin();">
+    <span class="fa fa-facebook"></span> <span class="hidden-xs">Sign in with</span> <span>Facebook</span>
+  </a>
+<a id="jtwitter" class="btn btn-block btn-lg btn-social btn-twitter" onclick="twitterLogin();">
+    <span class="fa fa-twitter"></span> <span class="hidden-xs">Sign in with</span> <span>Twitter</span>
+  </a>
+</center>
+</div>
+
+<div class="loginSSObox col-xs-6" >
+<center>
+<a id="jGoogle" class="btn btn-block btn-lg btn-social btn-google" onclick="googleLogin();">
+    <span class="fa fa-google"></span> <span class="hidden-xs">Sign in with</span> <span>Google+</span>
+  </a>
+<a id="jYahoo" class="btn btn-block btn-lg btn-social btn-yahoo" onclick="yahooLogin();">
+    <span class="fa fa-yahoo"></span> <span class="hidden-xs">Sign in with</span> <span>Yahoo</span>
+  </a>
+</center>
+</div>
+<div style="clear:both;height:10px;">&nbsp;</div>
+<div class="text-divider">
+      <span style="background-color: #FFF; padding: 0 10px;line-height:0%;color:#000;float:none !important;margin:0 !important;">
+        OR with your username and password 
+      </span>
+    </div>
+
+<style>
+.text-divider{margin: 2em 0; line-height: 0; text-align: center;}
+.text-divider:before{ content: " "; display: block; border-top: 1px solid #000; border-bottom: 1px solid #000;}
+</style>
+-->
+
+<p><strong>Reminder:</strong> If you have an existing account with American Diabetes Association, please <a href="https://diabetesfoodhub.org/login.html" target="_parent">login</a></p>
+<br />
+   
+    <form id="dfhregform" class="form-horizontal luminateApi survey-form" action="https://donations.diabetes.org/site/CRSurveyAPI" method="POST" data-luminateApi='{"callback": "submitSurveyCallback", "requiresAuth": "true"}'>
+      <div class="row">
+        <input name="method" type="hidden" value="submitSurvey" />
+        <input name="survey_id" type="hidden" value="37762" />
+        <!--<input name="question_105440" id="question_105440" value="TRUE" type="hidden" />-->
+        <input name="question_105442" id="question_105442" type="hidden" />
+        
+        <!-- spam prevention effort -->
+        <input id="denyAPISubmit" style="display: none;" name="denyAPISubmit" type="text" />
+      </div>
+      <div class="clearfix">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="survey-cons-first-name" class="sr-only">First Name*:</label>
+          <input id="survey-cons-first-name" class="form-control" name="cons_first_name" type="text" placeholder="First name (required)" data-validation="required" data-validation-error-msg="First name is required" />
+        </div>
+        <div class="col-sm-6">
+          <label for="survey-cons-last-name" class="sr-only">Last Name*:</label>
+          <input id="survey-cons-last-name" class="form-control" name="cons_last_name" type="text" placeholder="Last name (required)" data-validation="required" data-validation-error-msg="Last name is required" />
+        </div>
+      </div>
+      <div class="clearfix">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="survey-cons-email" class="sr-only">Email*:</label>
+          <input id="survey-cons-email"  data-validation="email" class="form-control" name="cons_email" type="text" placeholder="Email (required)" data-validation-error-msg="You did not enter a valid e-mail" />
+        </div>      
+      </div>
+      <div class="clearfix">&nbsp;</div>
+   
+      
+      <div class="row"> 
+        <div class="col-sm-4">
+          <label for="survey-cons-zipcode" class="sr-only radio-inline">Zip Code*</label>
+          <input id="survey-cons-zipcode" class="form-control" name="cons_zip_code"  placeholder="Zipcode (required)" type="text" data-validation="required" data-validation-error-msg="Zipcode is required" />
+        </div>
+        <div class="col-sm-4">
+          <label for="survey-cons-country" class="sr-only radio-inline">Country*</label>
+          <select id="survey-cons-country" class="form-control" name="cons_country" data-validation="required" data-validation-error-msg="Country is required"  >
+                <option value="United States">United States</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Aland Islands">Aland Islands</option>
+                <option value="Albania">Albania</option>
+                <option value="Algeria">Algeria</option>
+                <option value="American Samoa">American Samoa</option>
+                <option value="Andorra">Andorra</option>
+                <option value="Angola">Angola</option>
+                <option value="Anguilla">Anguilla</option>
+                <option value="Antarctica">Antarctica</option>
+                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Armenia">Armenia</option>
+                <option value="Aruba">Aruba</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Bahamas">Bahamas</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Barbados">Barbados</option>
+                <option value="Belarus">Belarus</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Belize">Belize</option>
+                <option value="Benin">Benin</option>
+                <option value="Bermuda">Bermuda</option>
+                <option value="Bhutan">Bhutan</option>
+                <option value="Botswana">Botswana</option>
+                <option value="Bouvet Island">Bouvet Island</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Brunei Darussalam">Brunei Darussalam</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cambodia">Cambodia</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Canada">Canada</option>
+                <option value="Cape Verde">Cape Verde</option>
+                <option value="Cayman Islands">Cayman Islands</option>
+                <option value="Chad">Chad</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Christmas Island">Christmas Island</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Comoros">Comoros</option>
+                <option value="Congo">Congo</option>
+                <option value="Cook Islands">Cook Islands</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cote D'Ivoire">Cote D'Ivoire</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Curacao">Curacao</option>
+                <option value="Cyprus">Cyprus</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Djibouti">Djibouti</option>
+                <option value="Dominica">Dominica</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Egypt">Egypt</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                <option value="Eritrea">Eritrea</option>
+                <option value="Estonia">Estonia</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Faroe Islands">Faroe Islands</option>
+                <option value="Fiji">Fiji</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="French Guiana">French Guiana</option>
+                <option value="French Polynesia">French Polynesia</option>
+                <option value="Gabon">Gabon</option>
+                <option value="Gambia">Gambia</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Germany">Germany</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Gibraltar">Gibraltar</option>
+                <option value="Greece">Greece</option>
+                <option value="Greenland">Greenland</option>
+                <option value="Grenada">Grenada</option>
+                <option value="Guadeloupe">Guadeloupe</option>
+                <option value="Guam">Guam</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Guernsey">Guernsey</option>
+                <option value="Guinea">Guinea</option>
+                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                <option value="Guyana">Guyana</option>
+                <option value="Haiti">Haiti</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Iceland">Iceland</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Iraq">Iraq</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Isle of Man">Isle of Man</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Jamaica">Jamaica</option>
+                <option value="Japan">Japan</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Kiribati">Kiribati</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Lesotho">Lesotho</option>
+                <option value="Liberia">Liberia</option>
+                <option value="Libya">Libya</option>
+                <option value="Liechtenstein">Liechtenstein</option>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Macao">Macao</option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="Malawi">Malawi</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Mali">Mali</option>
+                <option value="Malta">Malta</option>
+                <option value="Marshall Islands">Marshall Islands</option>
+                <option value="Martinique">Martinique</option>
+                <option value="Mauritania">Mauritania</option>
+                <option value="Mauritius">Mauritius</option>
+                <option value="Mayotte">Mayotte</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Monaco">Monaco</option>
+                <option value="Mongolia">Mongolia</option>
+                <option value="Montenegro">Montenegro</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Myanmar">Myanmar</option>
+                <option value="Namibia">Namibia</option>
+                <option value="Nauru">Nauru</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="New Caledonia">New Caledonia</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Niger">Niger</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Niue">Niue</option>
+                <option value="Norfolk Island">Norfolk Island</option>
+                <option value="Norway">Norway</option>
+                <option value="Oman">Oman</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Palau">Palau</option>
+                <option value="Panama">Panama</option>
+                <option value="Papua New Guinea">Papua New Guinea</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Peru">Peru</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Pitcairn">Pitcairn</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Republic of Korea">Republic of Korea</option>
+                <option value="Republic of Moldova">Republic of Moldova</option>
+                <option value="Reunion">Reunion</option>
+                <option value="Romania">Romania</option>
+                <option value="Russian Federation">Russian Federation</option>
+                <option value="Rwanda">Rwanda</option>
+                <option value="Saint Barthelemy">Saint Barthelemy</option>
+                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                <option value="Saint Lucia">Saint Lucia</option>
+                <option value="Saint Martin (French)">Saint Martin (French)</option>
+                <option value="Samoa">Samoa</option>
+                <option value="San Marino">San Marino</option>
+                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Serbia">Serbia</option>
+                <option value="Seychelles">Seychelles</option>
+                <option value="Sierra Leone">Sierra Leone</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Sint Maarten (Dutch)">Sint Maarten (Dutch)</option>
+                <option value="Slovakia">Slovakia</option>
+                <option value="Slovenia">Slovenia</option>
+                <option value="Solomon Islands">Solomon Islands</option>
+                <option value="Somalia">Somalia</option>
+                <option value="South Africa">South Africa</option>
+                <option value="South Sudan">South Sudan</option>
+                <option value="Spain">Spain</option>
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="Sudan">Sudan</option>
+                <option value="Suriname">Suriname</option>
+                <option value="Swaziland">Swaziland</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                <option value="Tajikistan">Tajikistan</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Timor-Leste">Timor-Leste</option>
+                <option value="Togo">Togo</option>
+                <option value="Tokelau">Tokelau</option>
+                <option value="Tonga">Tonga</option>
+                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Turkmenistan">Turkmenistan</option>
+                <option value="Tuvalu">Tuvalu</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Uzbekistan">Uzbekistan</option>
+                <option value="Vanuatu">Vanuatu</option>
+                <option value="Viet Nam">Viet Nam</option>
+                <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                <option value="Wallis and Futuna">Wallis and Futuna</option>
+                <option value="Western Sahara">Western Sahara</option>
+                <option value="Yemen">Yemen</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+             </select>
+		  </div>
+      </div>
+      <div class="clearfix">&nbsp;</div>
+      <div class="row">
+        <div id="optinboxcontainer" class="col-sm-12" style="display:none;">
+          <input type="checkbox" name="cons_email_opt_in" id="cons_email_opt_in" value="false"> Yes, I would like to receive email from the American Diabetes Association.
+          
+          <!--<input type="hidden" id="cons_email_opt_in_requested" name="cons_email_opt_in_requested" value="true" />-->
+        </div>
+      </div>
+      <div class="clearfix">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="survey-cons-user-name" class="sr-only radio-inline">Username*</label>
+			<input type="text" class="form-control" name="cons_user_name" id="survey-cons-user-name" placeholder="Username (required)" maxlength="60" data-validation="required" data-validation-length="max60" data-validation-error-msg="Username is required" /><br /><sup><em>5-60 characters</em></sup><br />
+        </div>
+      </div>
+      <div class="clearfix">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="survey-cons-password" class="sr-only radio-inline">Password*</label>
+          <input type="password" class="form-control" name="cons_password" id="survey-cons-password" placeholder="Password (required)" maxlength="20" data-validation="required" data-validation-length="max20" data-validation-error-msg="Password is required" /><br /><sup><em>5-20 characters</em></sup><br />
+        </div>
+      </div>
+      <div class="clearfix">&nbsp;</div>
+       <div class="row">
+        <div class="col-sm-12">
+          <label for="survey-cons-rep-password" class="sr-only radio-inline">Retype Password*</label>
+          <input type="password" class="form-control" name="cons_rep_password" id="survey-cons-rep-password" placeholder="Retype Password (required)" maxlength="20" data-validation="required" data-validation-length="max20" data-validation-error-msg="Please retype your password" />
+        </div>
+      </div>
+      <div class="clearfix">&nbsp;</div>
+      <div class="row">
+        <div class="col-sm-12"> <br />
+			<p>The registration information entered will be used to serve you better by providing updates relevant to the site and to our efforts. Please view our complete <a href="PageServer?pagename=privacypolicy" target="_blank">privacy policy</a>.</p><br />
+          <input id="frmSubmit" class="form-control btn btn-primary" type="submit" value="SUBMIT"  />
+        </div>
+      </div>
+    </form>
+    
+    <div id="tyconfirm2" style="padding:20px;">
+<div style="clear:both;height:100px;">&nbsp;</div>
+	<h3><strong>Welcome, <span id="activeUserFname">[[S1:first_name]]!</span></strong></h3>
+<p>You have successfully registered, <a id="homepageLink" href="#" target="_parent">click here to continue with your logged in session</a>.</p>
+	<ul>
+		<li>You may also visit your <a href="https://donations.diabetes.org/site/SPageServer?pagename=CC_Home" target="_blank">American Diabetes Association Constituent Center</a> to update/complete your profile, check upcoming fundraising events/activities, review donations history and much more.</li>
+	</ul>
+	
+	</div>
+::
+
+<div id="tyconfirm" style="padding:20px;">
+	<h3><strong>Welcome, <span id="activeUserFname">[[S1:first_name]]!</span></strong></h3>
+<p>You have successfully registered, <a id="homepageLink" href="#" target="_parent">click here to continue with your logged in session</a>.</p>
+	<ul>
+		<li>You may also visit your <a href="https://donations.diabetes.org/site/SPageServer?pagename=CC_Home" target="_blank">American Diabetes Association Constituent Center</a> to update/complete your profile, check upcoming fundraising events/activities, review donations history and much more.</li>
+	</ul>
+	
+</div>
+
+]]
+
+<br /><br /><br />
+  </div>
+</div>
+<style>
+body,p,span,div,a,li{font-size:12pt;}
+#activeUserFname{font-size:24px}
+#tyconfirm2{display:none;}
+body{background:transparent;}
+a, a:hover, a:visited, a:link {color:#C41230;}
+#surveyBox{margin-top:10px;margin-bottom:10px;}
+#surveyBox .clearfix{height:1px;}
+#surveyBox .form-control{height:45px;}
+#surveyBox form{/*border:#C0BBBB solid 1px;border-radius:10px;*/padding:10px;}
+input,select{margin:10px 5px;padding:5px;height:40px;}
+
+#frmSubmit {
+    background-image: none;
+    background-color: #C41230;
+    border: none;
+    padding: 5px;
+    height: 40px;
+    margin: 0px;
+    font-weight: bold;
+}
+textarea{margin:5px;padding:5px;}
+.clearDiv{clear:both;height:3px;width:100%;}
+input[type='text']{border:1px solid #CCC;background:#F8F8F8;}
+input[type='radio'], input[type='checkbox'] {height:auto;}
+label{white-space:normal;}
+	
+	#user_type_oauth_login_container{display:none;}
+
+	.loginSSObox{margin-bottom:20px;}
+	a.btn-social{background-image:none;filter:none;padding:15px !important;border-color: rgba(0,0,0,.2);text-decoration:none !important;}
+	.loginSSObox{max-width:280px;}
+	a.btn-twitter{background-color:#55acee;color:#FFF !important;padding-left:61px !important;}
+	a.btn-facebook{background-color:#3b5998;color:#FFF !important;padding-left:61px !important;}
+	a.btn-google{background-color:#c23321;color:#FFF !important;padding-left:61px !important;}
+	a.btn-yahoo{background-color:#500a6f;color:#FFF !important;padding-left:61px !important;}
+
+@media only screen and (max-width: 767px){
+         #user_type_login_container, #user_type_new_participant_registration_container {width:100% !important;max-width:280px;}
+        }
+	
+</style>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script> 
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/luminateExtend/1.6.0/luminateExtend.min.js"></script> 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script type="text/javascript">
+var jQADA = jQuery.noConflict(true);
+var baseURL;
+var allowedBase = ['diabetesfoodhub.org','sandbox.php54.intechnic.com','vm.aik.ninja','office.intechnic.com'];
+var matchBaseLoc=-1;
+var rootURL;
+var parentFrom;
+var reloadTarget;
+	
+	
+jQADA(document).ready(function(){
+
+	
+	luminateExtend({
+    apiKey: 'adap1234',
+    path: {
+      nonsecure: 'http://main.diabetes.org/site/',
+      secure: 'https://donations.diabetes.org/site/'
+    }
+  });
+  
+//compete URL Referrer Address
+	urlRef = document.referrer;
+	
+	if(urlRef != ''){
+		//get the domain base of the referrer
+		baseURL =  urlRef.match(/:\/\/(.[^/]+)/)[1];
+	
+		for(var i=0;i<allowedBase.length;i++){
+			if(baseURL.indexOf(allowedBase[i])!=-1){
+				matchBaseLoc = i;
+			}
+		}
+		//allowed domain
+		if(matchBaseLoc != -1){
+			//store initial allowed base domain in cookie
+			jQADA.cookie('parentfrmreg',baseURL);
+			rebuiltMainURL(baseURL);
+		} else {
+			//coming from referrer that is not allowed
+			//check if cookie storing original allowed referrer exist
+			if(typeof jQADA.cookie('parentfrmreg')!= 'undefined'){
+				parentFrom = jQADA.cookie('parentfrmreg');
+				jQADA.cookie('parentfrmreg',null); //destroy the cookie post passing to local var
+				
+				for(var i=0;i<allowedBase.length;i++){
+					if(parentFrom.indexOf(allowedBase[i])!=-1){
+						matchBaseLoc = i;
+					}
+				}
+				rebuiltMainURL(parentFrom);				
+				
+			} else {
+				//unknown origin redirect to production
+				//console.log('debug message: URLRef Reg page not blank');
+			}
+		}
+	} else {
+		//LO Registration page is likely accessed directly - redirect to production
+		//console.log('debug message: URLRef Reg page blank');
+	}
+
+
+[[?xxxx::xx[[S1:user_name]]xx::
+	jQADA.validate({		
+			errorMessagePosition: 'top',
+			onSuccess: function(){
+				if(jQADA('.survey-form').length > 0) {	  
+
+				  jQADA('.survey-form').submit(function(){});
+				}
+			}
+		});
+
+	  /* bind any forms with the "luminateApi" class */
+		luminateExtend.api.bind();
+		checkMYGDPR();
+		jQADA('#survey-cons-country').on('change', function(){
+			checkMYGDPR();
+		});
+		jQADA('#cons_email_opt_in').on('change', function(){
+			if (jQADA('#cons_email_opt_in').is(':checked')){
+			jQADA('#cons_email_opt_in').prop('value',true);
+			}else {
+			jQADA('#cons_email_opt_in').prop('value',false);
+			}
+		});
+		
+::]]  
+  
+});
+
+    window.submitSurveyCallback = {
+      error: function(data) {
+        jQADA('#survey-errors').remove();
+        jQADA('.survey-form .form-group .alert').remove();
+
+        jQADA('.survey-form').prepend('<div id="survey-errors">' +
+                                      '<div class="alert alert-danger">' +
+                                        data.errorResponse.message +
+                                      '</div>' +
+                                    '</div>');
+
+        jQADA('.survey-loading').remove();
+        jQADA('.survey-form').show();
+      },
+      success: function(data) {
+        jQADA('#survey-errors').remove();
+        jQADA('.survey-form .form-group .survey-alert-wrap').remove();
+
+        if(data.submitSurveyResponse.success == 'false') {
+          jQADA('.survey-form').prepend('<div id="survey-errors">' +
+                                      '<div class="alert alert-danger">' +
+                                        'There was an error with your submission. Please try again.' +
+                                      '</div>' +
+                                    '</div>');
+
+          var surveyErrors = luminateExtend.utils.ensureArray(data.submitSurveyResponse.errors);
+          jQADA.each(surveyErrors, function() {
+            if(this.errorField) {
+              jQADA('input[name="' + this.errorField + '"]').closest('.form-group')
+                                                        .prepend('<div class="col-sm-12 survey-alert-wrap">' +
+                                                                   '<div class="alert alert-danger">' +
+                                                                     this.errorMessage +
+                                                                   '</div>' +
+                                                                 '</div>');
+            }
+          });
+         
+          jQADA('.survey-form').show();
+        }
+        else {       
+	   	   if (jQADA('#cons_email_opt_in').is(':checked')){
+			   luminateExtend.api.request({
+								api: 'survey',
+								callback: VMSSurveyCallback,
+								data: 'method=submitSurvey&survey_id=62326&question_105278=11161',
+								requestType: 'POST',
+								requiresAuth:true
+				});
+		   } else {
+			   luminateExtend.api.request({
+								api: 'survey',
+								callback: VMSSurveyCallback,
+								data: 'method=submitSurvey&survey_id=62326',
+								requestType: 'POST',
+								requiresAuth:true
+				});
+		   }
+		          
+      	}
+	   }
+    };
+
+window.VMSSurveyCallback = {
+      error: function(data) {
+		  //location.reload();
+		  jQADA('#tyconfirm2').show();
+		  jQADA('#dfhregform').hide();
+scrollToTarget('surveyBox');
+      }, 
+      success: function(data) {
+		 //location.reload();
+		  jQADA('#tyconfirm2').show();
+		  jQADA('#dfhregform').hide();
+scrollToTarget('surveyBox');
+      }
+};
+	
+function rebuiltMainURL(whatBase){
+	switch(matchBaseLoc){
+					case 0:
+						rootURL = 'https://'+whatBase+'/';
+					break;
+					case 1:
+						rootURL = 'https://'+whatBase+'/foodhub/';
+					break;
+					case 2:
+						rootURL = 'https://'+whatBase+'/p/foodhub/';
+					break;
+					case 3:
+						rootURL = 'https://'+whatBase+'/SVN/foodhub/';
+					break;
+	}
+	jQADA('#homepageLink').prop('href',rootURL);
+	reloadTarget = rootURL;
+}
+
+
+function getURLParameter(name) {
+    return decodeURI(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+}
+	
+function fbLogin(){
+jQADA('#janrain-facebook').click();
+}
+function twitterLogin(){
+jQADA('#janrain-twitter').click();
+}
+function googleLogin(){
+jQADA('#janrain-googleplus').click();
+}
+function yahooLogin(){
+jQADA('#janrain-yahoo').click();
+}	
+
+function scrollToTarget(whatTop){
+    var elmnt = document.getElementById(whatTop);
+    elmnt.scrollIntoView();	
+    jQADA('html,body', window.parent.document).scrollTop(elmnt.offsetTop);
+}
+	
+function checkMYGDPR(){
+var myGDPRCountry = jQADA('#survey-cons-country').val();
+	
+myGDPRCountry = myGDPRCountry.toLowerCase();
+
+switch(myGDPRCountry){
+	case "austria":
+	case "belgium":
+	case "bulgaria":
+	case "croatia":
+	case "cyprus":
+	case "czech republic":
+	case "denmark":
+	case "estonia":
+	case "finland":
+	case "france":
+	case "germany":
+	case "greece":
+	case "hungary":
+	case "ireland":
+	case "italy":
+	case "latvia":
+	case "lithuania":
+	case "luxembourg":
+	case "malta":
+	case "netherlands":
+	case "poland":
+	case "portugal":
+	case "romania":
+	case "slovakia":
+	case "slovenia":
+	case "spain":
+	case "sweden":
+	case "united kingdom":
+			jQADA('#consentGDPRbox').remove();
+			jQADA('<div id="consentGDPRbox" class="text-left"><input type="checkbox" name="consentGDPR" id="consentGDPR" value="yes"> As a resident of countries affected by GDPR, we are required to request your consent and acknowledgement that you authorize us to store your data by checking this box.</div>').insertBefore('#frmSubmit');
+			jQADA('#frmSubmit').hide();	
+			jQADA('#cons_email_opt_in').prop('checked', false);
+			jQADA('#cons_email_opt_in').prop('value',false);
+			jQADA('#optinboxcontainer').show();
+			jQADA('#consentGDPR').on('change', function(){
+				if (jQADA('#consentGDPR').is(':checked')){
+					jQADA('#frmSubmit').show();	
+					jQADA('#question_105442').val('TRUE');
+				} else {
+					jQADA('#frmSubmit').hide();
+					jQADA('#question_105442').val('');
+				}		
+			});
+		 		
+		break;
+	default:
+		jQADA('#consentGDPR').prop('checked', false);
+		jQADA('#cons_email_opt_in').prop('checked', true);	
+		jQADA('#cons_email_opt_in').prop('value',true);
+		jQADA('#optinboxcontainer').hide();
+		jQADA('#consentGDPRbox').remove();
+		jQADA('#frmSubmit').show();
+		jQADA('#question_105442').val('');
+}
+}
+	
+</script> 
+<script src="../ws/js/iframeresizer/iframeResizer355.contentWindow.min.js" type="text/javascript"></script>
+
+
